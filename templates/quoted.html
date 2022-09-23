@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    quoted
+{% endblock %}
+
+{% block main %}
+<h1>Quoted</h1>
+<div>
+    A share of {{data.name}} ({{data.symbol}}) costs {{ data.price | usd }}
+</div>
+{% endblock %}

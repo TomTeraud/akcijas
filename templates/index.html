@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   PORTFOLIO
+{% endblock %}
+
+{% block main %}
+<h1>Portfolio</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-start">Symbol</th>
+            <th class="text-start">Name</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Price</th>
+            <th class="text-end">TOTAL</th>
+        </tr>
+    </thead>
+    <tbody>
+            {%for k in data%}
+            <tr>
+                <td class="text-start">{{k["symbol"]}}</td>
+                <td class="text-start">{{k["name"]}}</td>
+                <td class="text-end">{{k["count"]}}</td>
+                <td class="text-end">{{k["price"]|usd}}</td>
+                <td class="text-end">{{k["sh_tt"]| usd}}</td>
+            </tr>
+            {%endfor%}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+            <td class="border-0 text-end">{{cash[0].cash| usd}}</td>
+        </tr>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">Toatal</td>
+            <td class="border-0 w-bold text-end">{{gtt| usd}}</td>
+        </tr>
+
+    </tfoot>
+</table>
+{% endblock %}
